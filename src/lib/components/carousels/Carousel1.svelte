@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { Snippet, Component } from 'svelte';
-	import { onMount } from 'svelte';
 	import { hover, animate } from 'motion';
 	import type { Action } from 'svelte/action';
 	type CarouselProps = {
