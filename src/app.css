@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+:root {
+    --font-primary: 'Times New Roman';
+}
+
+html {
+    scroll-behavior: smooth;
+}
