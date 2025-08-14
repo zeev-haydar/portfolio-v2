@@ -8,6 +8,12 @@ declare module '*?url' {
 	export default url;
 }
 
+declare module '*.svg' {
+  const content: string;
+  export default content;
+}
+
+
 declare global {
 	namespace App {
 		// interface Error {}
