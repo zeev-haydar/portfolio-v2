@@ -1,6 +1,8 @@
 <script lang="ts">
 	import '../app.css';
-	import { favicon } from '$lib/assets';
+	import favicon from '$lib/assets/favicon.svg';
+	// @ts-ignore
+	import { browser } from '$app/environment';
 	import { Header, Link } from '$lib';
 	import { NewTabLinkIcon } from '$lib/components/icons';
 	import { setContext } from 'svelte';
@@ -35,7 +37,9 @@
 	</Link>
 </Header>
 
-<CustomCursor />
+{#if browser}
+	<CustomCursor />
+{/if}
 
 {@render children?.()}
 

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
+	
 
 	// Reactive state to hold the cursor's coordinates
 	let cursorPosition = $state({ x: -100, y: -100 });
