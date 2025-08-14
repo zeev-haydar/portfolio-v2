@@ -78,7 +78,7 @@
 	{#if props.navbutton}
 		<a
 			href={props.navbutton.href}
-			class="mt-auto rounded-lg px-6 py-2 font-bold transition-transform hover:scale-105"
+			class="mt-auto rounded-lg px-6 py-2 font-bold transition-transform hover:scale-110"
 			style="
             background-color: {props.navbutton.backgroundColor};
             border-color: {props.navbutton.textColor};

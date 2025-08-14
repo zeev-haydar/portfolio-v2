@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { Link } from "$lib";
+
 	type JustifyContent =
 		| 'flex-start'
 		| 'flex-end'
@@ -31,7 +33,9 @@
 	style="justify-content: {justifyContent}"
 >
 	<div class="w-full flex flex-row justify-start">
-		<h1 class="font-bold">Haidar Wibowo</h1>
+		<Link href="/">
+			<h1 class="font-bold">Haidar Wibowo</h1>
+		</Link>
 	</div>
 	{@render children?.()}
 </header>

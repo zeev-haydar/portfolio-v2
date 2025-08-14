@@ -1,7 +1,14 @@
+<script lang="ts">
+	// 1. Define the props the component accepts.
+	let { size = 24 } = $props<{
+		size?: number;
+	}>();
+</script>
+
 <svg
 	xmlns="http://www.w3.org/2000/svg"
-	width="24"
-	height="24"
+	width={size}
+	height={size}
 	viewBox="0 0 24 24"
 	fill="none"
 	stroke="currentColor"
