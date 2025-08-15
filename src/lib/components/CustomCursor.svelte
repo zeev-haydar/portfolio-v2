@@ -48,6 +48,7 @@
 		/* Ensure the cursor doesn't block interactions with elements underneath */
 		pointer-events: none;
 		z-index: 9999;
+		mix-blend-mode: difference;
 	}
 
 	.cursor-circle {
@@ -65,6 +66,7 @@
 			top 0.01s,
 			left 0.01s;
 		z-index: 9999;
+		mix-blend-mode: difference;
 	}
 
 	/* This class makes the circle grow when hovering over links/buttons */

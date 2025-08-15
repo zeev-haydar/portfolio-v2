@@ -4,48 +4,63 @@
 	import type { Action } from 'svelte/action';
 	import { hover } from 'motion';
 	import { fade } from 'svelte/transition';
+	import { getContext, onMount } from 'svelte';
 
 	type DisplayBoxProps = {
-		size: [number | string, number | string];
 		image?: string;
 		tooltip?: string;
-        onClick?: MouseEventHandler<HTMLButtonElement>;
+		onClick?: MouseEventHandler<HTMLButtonElement>;
+		modalComponent?: any; // Component to show in modal
+		modalProps?: any; // Props to pass to modal component
 	};
-	let { size, image, tooltip, onClick }: DisplayBoxProps = $props();
+	let { image, tooltip, onClick, modalComponent, modalProps = {} }: DisplayBoxProps = $props();
 
 	let infoIconVisible: boolean = $state(false);
-	let mousePosition = $state({ x: 0, y: 0 });
 
-	const handleClick: MouseEventHandler<HTMLButtonElement> = () => {
-		// this will open a modal. will be handled later
+	// Get modal context
+	const modal = getContext('modal') as {
+		open: (component: any, props?: any) => void;
+		close: () => void;
+		isOpen: () => boolean;
+	};
+
+
+	const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
+		// If custom onClick is provided, use it
+		if (onClick) {
+			onClick(event);
+			return;
+		}
+
+		// If modalComponent is provided, open it in modal
+		if (modalComponent && modal) {
+			modal.open(modalComponent, {
+				...modalProps,
+				image,
+				tooltip
+			});
+			return;
+		}
+
+		// Default behavior
 		console.log('Button clicked!');
 	};
 
 	const hoverAction: Action<HTMLButtonElement> = (element) => {
-		const updateMousePosition = (event: MouseEvent) => {
-			mousePosition.x = event.clientX;
-			mousePosition.y = event.clientY;
-		};
-
 		const controls = hover(element, () => {
 			infoIconVisible = true;
-			element.addEventListener('mousemove', updateMousePosition);
 
 			return (endEvent) => {
 				infoIconVisible = false;
-				element.removeEventListener('mousemove', updateMousePosition);
 			};
 		});
 
 		return {
 			destroy() {
 				controls();
-				element.removeEventListener('mousemove', updateMousePosition);
 			}
 		};
 	};
-
-	const formatSize = (value: number | string) => (typeof value === 'number' ? `${value}px` : value);
 </script>
 
 <button
@@ -53,9 +68,7 @@
 	class="relative overflow-hidden rounded-lg bg-center text-white shadow-lg"
 	class:bg-cover={image}
 	class:bg-gray-200={!image}
-	style="width:{formatSize(size[0])}; height: {formatSize(size[1])}; {image
-		? `background-image: url(${image});`
-		: ''}"
+	style="{image ? `background-image: url(${image});`: ''}"
 	aria-label={tooltip || 'View more details'}
 	onclick={onClick || handleClick}
 >
@@ -71,12 +84,7 @@
 		>
 			{#if tooltip}
 				<span
-					class="fixed z-10 rounded-md bg-gray-900 px-2 py-1 text-sm"
-					style="
-                    top: {mousePosition.y}px;
-                    left: {mousePosition.x}px;
-                    transform: translate(-100%, -533%);
-                "
+					class="absolute top-4 left-1/2 transform -translate-x-1/2 z-10 rounded-md bg-gray-900 px-2 py-1 text-sm whitespace-nowrap"
 				>
 					{tooltip}
 				</span>

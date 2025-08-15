@@ -55,31 +55,38 @@
 </script>
 
 <div
-	class="flex h-screen w-screen flex-col items-center p-8 bg-gray-800"
+	class="flex h-screen w-screen flex-col items-center bg-gray-800 p-8"
 	style="padding-top: {headerHeight()}px;"
 >
 	<h1 class="my-2">CV/Resume</h1>
-    
+
 	<div class="pdf-container">
-        <canvas bind:this={canvas}></canvas>
+		<canvas bind:this={canvas}></canvas>
 	</div>
-    <div class="pagination-controls my-2 flex items-center gap-4 text-white">
-        <button
-            class="rounded bg-blue-600 px-4 py-1 disabled:opacity-50"
-            disabled={currentPage <= 1}
-            onclick={() => currentPage--}
-        >
-            {"<"}
-        </button>
-        <span>Page {currentPage} of {totalPages}</span>
-        <button
-            class="rounded bg-blue-600 px-4 py-1 disabled:opacity-50"
-            disabled={currentPage >= totalPages}
-            onclick={() => currentPage++}
-        >
-            {">"}
-        </button>
-    </div>
+	<div class="pagination-controls my-2 flex items-center gap-4 text-white">
+		<button
+			class="rounded bg-blue-600 px-4 py-1 disabled:opacity-50"
+			disabled={currentPage <= 1}
+			onclick={() => currentPage--}
+		>
+			{'<'}
+		</button>
+		<span>Page {currentPage} of {totalPages}</span>
+		<button
+			class="rounded bg-blue-600 px-4 py-1 disabled:opacity-50"
+			disabled={currentPage >= totalPages}
+			onclick={() => currentPage++}
+		>
+			{'>'}
+		</button>
+	</div>
+	<a
+		href={pdfUrl}
+		download="Nazhif Haidar CV.pdf"
+		class="mt-4 rounded-2xl bg-blue-200 p-4 text-black no-underline transition hover:bg-blue-300"
+	>
+		<p>Download CV/Resume</p>
+	</a>
 </div>
 
 <style>
