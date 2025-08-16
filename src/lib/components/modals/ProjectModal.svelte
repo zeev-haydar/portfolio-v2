@@ -1,14 +1,5 @@
 <script lang="ts">
-	type ProjectDetailModalProps = {
-		image?: string;
-		tooltip?: string;
-		title?: string;
-		description?: string;
-		technologies?: string[];
-		githubUrl?: string;
-		demoUrl?: string;
-		closeModal?: () => void;
-	};
+	import { type ProjectModalProps } from "$lib/data/project";
 
 	let { 
 		image, 
@@ -18,11 +9,22 @@
 		technologies = [],
 		githubUrl,
 		demoUrl,
-		closeModal 
-	}: ProjectDetailModalProps = $props();
+		closeModal = () => {}
+	}: ProjectModalProps = $props();
 </script>
 
-<div class="project-modal w-full max-w-4xl mx-auto p-6">
+<div class="project-modal relative w-full max-w-4xl mx-auto p-6 bg-white rounded-xl shadow-lg">
+	<!-- Close Button -->
+	<button 
+		class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition-colors"
+		onclick={closeModal}
+		aria-label="Close modal"
+	>
+		<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+		</svg>
+	</button>
+
 	<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 		<!-- Image Section -->
 		<div class="space-y-4">
@@ -31,7 +33,10 @@
 					<img 
 						src={image} 
 						alt={title}
+						loading="lazy"
+						decoding="async"
 						class="w-full h-full object-cover"
+						style="max-height: 400px"
 					/>
 				</div>
 			{/if}
@@ -96,6 +101,7 @@
 
 <style>
 	.project-modal {
-		min-height: 400px;
+		will-change: transform, opacity;
+  		transform: translateZ(0);
 	}
 </style>

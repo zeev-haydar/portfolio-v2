@@ -1,10 +1,9 @@
 <script lang="ts">
 	import { AboutSection, MainSection, ProjectSection, Section } from '$lib/components/sections';
 	import { fade, fly } from 'svelte/transition';
-	import type { Action } from 'svelte/action';
-	import { NewTabLinkIcon } from '$lib/components/icons';
 	import { getContext, onMount, type Component } from 'svelte';
 	import { setContext } from 'svelte';
+	import ModalWrapper from '$lib/components/modals/ModalWrapper.svelte';
 
 	let modalComponent: Component | null = $state(null);
 	let modalProps: any = $state({});
@@ -106,7 +105,7 @@
 	</Section>
 </div>
 
-{#if isModalOpen && modalComponent}
+{#if isModalOpen}
 	{@const ModComponent = modalComponent}
 	<div
 		class="modal-overlay fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
@@ -123,8 +122,8 @@
 		<div
 			class="modal-content relative max-h-[90vh] max-w-[90vw] overflow-auto rounded-lg bg-white shadow-2xl"
 			onclick={(e) => e.stopPropagation()}
-			in:fly={{ y: 20, duration: 300, delay: 100 }}
-			out:fly={{ y: 20, duration: 200 }}
+			in:fade={{  duration: 300, delay: 100 }}
+			out:fade={{ duration: 200 }}
 			role="document"
 			tabindex="-1"
 		>
@@ -151,7 +150,7 @@
 			<ModComponent {...modalProps} {closeModal} />
 		</div>
 	</div>
-{/if}
+	{/if}
 
 <style>
 	.scroll-container {
@@ -169,8 +168,7 @@
 	}
 
 	.modal-overlay {
-		backdrop-filter: blur(4px);
-		animation: fadeIn 0.2s ease-out;
+		background: rgba(0, 0, 0, 0.5);
 	}
 
 	.modal-content {
