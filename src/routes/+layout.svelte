@@ -16,7 +16,9 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<title>Haidar Wibowo's Personal Web</title>
 </svelte:head>
+
 
 <Header bind:height={headerHeight} justifyContent="flex-end">
 	<Link href="https://github.com/zeev-haydar" target="_blank" rel="noopener noreferrer">

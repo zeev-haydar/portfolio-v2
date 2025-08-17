@@ -109,7 +109,7 @@ export const projects: Project[] = [
 			image: 'images/projects/millenium-app.jpg',
 			title: 'Millenium App',
 			description: 'Learning app that tracks how you learn with personalized AI recommendation',
-			technologies: ['Python', 'PyTorch', 'NextJS', 'NodeJS', 'TypeScript'],
+			technologies: ['Python', 'PyTorch', 'NextJS', 'NodeJS', 'TypeScript', 'Go'],
 			githubUrl: 'https://github.com/GNF-Labs'
 		}
 	},

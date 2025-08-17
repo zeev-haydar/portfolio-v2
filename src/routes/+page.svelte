@@ -76,6 +76,10 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
+<svelte:head>
+	<title>Haidar Wibowo's Personal Web</title>
+</svelte:head>
+
 <div class="scroll-container" class:modal-open={isModalOpen} bind:this={scrollContainer}>
 	<Section
 		id="home"
