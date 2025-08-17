@@ -45,40 +45,30 @@
 			</div>
 		</div>
 		<div class="flex h-full max-w-[33%] flex-col items-center gap-x-1">
-			<h1 class="font-extrabold">Achievements</h1>
-			<div class="mt-4 flex h-full flex-col rounded-2xl border border-white p-8 text-justify">
-				<ul class="mt-4 list-inside space-y-2">
-					<li class="flex items-start">
-						<span class="mr-2 text-green-400">〇 </span>
-						<span class="text-[1rem] text-[#ccc]">Finalist Compfest 16 Data Analytics Dash</span>
-					</li>
-					<li class="flex items-start">
-						<span class="mr-2 text-green-400">〇 </span>
-						<span class="text-[1rem] text-[#ccc]"
-							>Finalist Compfest 16 AI Innovation Challenge</span
-						>
-					</li>
-					<li class="flex items-start">
-						<span class="mr-2 text-green-400">〇 </span>
-						<span class="text-[1rem] text-[#ccc]"
-							>Finalist GEMASTIK XVI 2023 IoT, Embedded System, and Smart Device Division</span
-						>
-					</li>
-					<li class="flex items-start">
-						<span class="mr-2 text-green-400">〇 </span>
-						<span class="text-[1rem] text-[#ccc]">Finalist GEMASTIK XVII 2024 Data Mining</span>
-					</li>
-				</ul>
+			<h1 class="font-extrabold">About Me</h1>
+			<div class="mt-4 flex h-full flex-col rounded-2xl border border-white p-8 text-justify gap-y-4">
+				<p>
+					I am a type of person that eager to learn everything that is interesting to me. 
+					I also can work on a group, and sometimes I become the group leader.
+				</p>
+				<p>
+					My interest in programming world include things like game development, software engineering, and AI/ML/Data Science related.
+					The most skilled one is the latter. I have many experiences regarding the AI/ML/Data Science from many competitions, and Bangkit program by Google that give me the skill certificate.
+				</p>
+				<p>
+					Beyond that, I also have passion in music. I have been making music for 9 years, currently as a hobby.
+					I am a person that wants to explore many things and excel in various skills, both technical and non-technical.
+				</p>
 			</div>
 		</div>
 	</div>
 </div>
 
 <style>
-	/* p {
-		font-size: 1.2rem;
+	p {
+		font-size: 1rem;
 		color: #ccc;
-	} */
+	}
 	li {
 		font-size: 1rem;
 		color: #ccc;

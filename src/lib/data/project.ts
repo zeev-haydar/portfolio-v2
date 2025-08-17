@@ -74,5 +74,54 @@ export const projects: Project[] = [
 			technologies: ['Python', 'TensorFlow', 'FastAPI'],
             githubUrl: 'https://github.com/TuneHive/ML-TuneHive'
 		}
+	},
+	{
+		image: 'images/projects/infastq.jpg',
+		tooltip: 'INFASTQ',
+		modalComponent: ProjectModal,
+		modalProps: {
+			image: 'images/projects/infastq.jpg',
+			title: 'INFASTQ',
+			description: `
+				Smart Infaq box system that utilize IoT and Machine Learning to automate the money counting system.
+			`,
+			technologies: ['Arduino (ESP32)', 'Python', 'Django', 'ScikitLearn', 'XGBoost'],
+			githubUrl: 'https://github.com/Infastq'
+		}
+	},
+	{
+		image: 'images/projects/nss-baby-monitor.png',
+		tooltip: 'Baby Care Monitor',
+		modalComponent: ProjectModal,
+		modalProps: {
+			image: 'images/projects/nss-baby-monitor.png',
+			title: 'Baby Care Monitor (Backend)',
+			description: 'A Smart system that can help parents to monitor their babies remotely. It has a technology that can detect an crying sound and play a lullaby upon the detection',
+			technologies: ['Python', 'Django', 'WebSocket', 'AI'],
+			githubUrl: "https://github.com/zeev-haydar/TPK-BabyCareMonitor"
+		}
+	},
+	{
+		image: 'images/projects/millenium-app.jpg',
+		tooltip: 'Millenium App',
+		modalComponent: ProjectModal,
+		modalProps: {
+			image: 'images/projects/millenium-app.jpg',
+			title: 'Millenium App',
+			description: 'Learning app that tracks how you learn with personalized AI recommendation',
+			technologies: ['Python', 'PyTorch', 'NextJS', 'NodeJS', 'TypeScript'],
+			githubUrl: 'https://github.com/GNF-Labs'
+		}
+	},
+	{
+		image: 'images/projects/laba-laba-sunda.webp',
+		tooltip: 'Sprout Surge',
+		modalComponent: ProjectModal,
+		modalProps: {
+			image: 'images/projects/laba-laba-sunda.webp',
+			title: 'Sprout Surge',
+			description: 'Simple stealth game where your character is a robot that trying to pick up items. At the mmoment, the GitHub URL of the project is unavailable because it is private',
+			technologies: ['Unity', 'C#'],
+		}
 	}
 ];

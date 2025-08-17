@@ -22,7 +22,7 @@
 <div class="flex h-full w-full flex-col items-center px-8">
 	<h1 class="font-black" in:fly={{ y: 20, duration: 1000 }}>My Projects</h1>
 	<div class="mt-4 h-full w-full pb-[10%]" in:fade={{duration: 1000, delay: 200 }}>
-		<SmartGrid minSize={100} gap={20}>
+		<SmartGrid minSize={200} gap={20}>
 			
 			{#each projects as project}
 				<DisplayBox

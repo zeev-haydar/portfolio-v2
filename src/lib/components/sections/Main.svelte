@@ -42,7 +42,7 @@
 			>
 				<h1 class="font-black text-black">Projects</h1>
 			</Carousel1>
-			<Carousel1
+			<!-- <Carousel1
 				backgroundColor="aliceblue"
 				roundRadius={10}
 				size={[320, 320]}
@@ -54,7 +54,7 @@
 				}}
 			>
 				<h1 class="font-black text-black">Others</h1>
-			</Carousel1>
+			</Carousel1> -->
 		</div>
 	</div>
 </div>
